@@ -1,5 +1,9 @@
 class DevicesController < ApplicationController
 
+  def index
+
+  end
+
   def new
     @business = Device.new
   end
@@ -36,6 +40,11 @@ class DevicesController < ApplicationController
     @business = Device.find(params[:id])
     @business.destroy
     redirect_to businesss_path
+  end
+
+  def import
+    Business.import(params[:file])
+    redirect_to root_url
   end
 
   private
