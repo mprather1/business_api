@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
+  get 'imports' => 'businesses#imports'
+
 end
