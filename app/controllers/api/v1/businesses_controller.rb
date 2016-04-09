@@ -1,6 +1,9 @@
 module Api
   module V1
     class BusinessesController < ApplicationController
+
+      skip_before_filter :verify_authenticity
+
       def index
         @businesses = Business.all
         respond_to do |format|
@@ -14,6 +17,7 @@ module Api
           format.json{render json: @business}
         end
       end
+      
     end
   end
 end
