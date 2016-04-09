@@ -1,16 +1,11 @@
 module Api
   module V1
     class BusinessesController < ApplicationController
-      #include ActiveModel::Serializers::JSON
-      skip_before_filter :verify_authenticity
 
-  #    def attributes
-  #      {'name' => nil }
-  #    end
+      skip_before_filter :verify_authenticity
 
       def index
         @businesses = Business.all
-        data =
         respond_to do |format|
           format.json{ paginate json: @businesses, per_page: 50, each_serializer: IndexSerializer }
         end
@@ -21,7 +16,6 @@ module Api
         respond_to do |format|
           format.json{render json: @business, serializer: ShowSerializer }
         end
-        #respond_with @business, serializer: nil
       end
 
     end

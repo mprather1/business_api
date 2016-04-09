@@ -1,1 +1,0 @@
-Business.create(name: "testname")
