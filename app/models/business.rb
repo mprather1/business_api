@@ -1,6 +1,6 @@
 class Business < ActiveRecord::Base
   paginates_per 50
-  
+#  serialize :name
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
