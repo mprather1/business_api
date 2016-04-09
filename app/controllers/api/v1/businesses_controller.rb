@@ -17,7 +17,7 @@ module Api
           format.json{render json: @business}
         end
       end
-      
+
     end
   end
 end

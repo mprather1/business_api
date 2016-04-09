@@ -1,5 +1,5 @@
 json.array!(@businesses) do |business|
-
-  json.name business.name
+  json.extract! business, :name
+  #json.name business.name
 
 end
