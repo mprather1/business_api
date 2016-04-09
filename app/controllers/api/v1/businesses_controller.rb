@@ -4,7 +4,7 @@ module Api
       def index
         @businesses = Business.all
         respond_to do |format|
-          format.json{render json: @businesses}
+          format.json{ paginate json: @businesses, per_page: 50 }
         end
       end
 

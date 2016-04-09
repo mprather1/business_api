@@ -5,10 +5,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :businesses do
-    collection { post :import }
-  end
-
-  get 'imports' => 'businesses#imports'
+  
 
 end
