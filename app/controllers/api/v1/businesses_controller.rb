@@ -7,14 +7,14 @@ module Api
       def index
         @businesses = Business.sorted
         respond_to do |format|
-          format.json{ paginate json: @businesses, per_page: 50, each_serializer: IndexSerializer }
+          format.json{ paginate json: @businesses.pluck(:name).to_a, per_page: 50 }
         end
       end
 
       def show
         @business = Business.find(params[:id])
         respond_to do |format|
-          format.json{render json: @business, serializer: ShowSerializer }
+          format.json{ render json: @business, serializer: ShowSerializer }
         end
       end
 
