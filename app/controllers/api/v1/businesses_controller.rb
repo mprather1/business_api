@@ -5,7 +5,7 @@ module Api
       skip_before_filter :verify_authenticity
 
       def index
-        @businesses = Business.all
+        @businesses = Business.sorted
         respond_to do |format|
           format.json{ paginate json: @businesses, per_page: 50, each_serializer: IndexSerializer }
         end

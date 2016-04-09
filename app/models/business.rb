@@ -1,5 +1,7 @@
 class Business < ActiveRecord::Base
-  
+
+  scope :sorted, lambda { order("businesses.id ASC")}
+
   paginates_per 50
 
   def self.import(file)
